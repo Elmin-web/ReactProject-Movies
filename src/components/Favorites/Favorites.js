@@ -5,8 +5,8 @@ import "./Favorites.css";
 const Favorites = () => {
   const dispatch = useDispatch();
   const favoriteMovies = useSelector((store) => store.favoriteReducer.movies);
+  const title = useSelector((store) => store.favoriteReducer.movieListName);
   const [saveBtn, setsaveBtn] = useState("Сохранить список");
-  const [title, setTitle] = useState("");
   const [isClicked, setisClicked] = useState(false);
   const deleteFavorite = (movie) => {
     dispatch({
@@ -27,7 +27,9 @@ const Favorites = () => {
       <input
         value={title}
         className="favorites__name"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) =>
+          dispatch({ type: "LIST_NAME", payload: e.target.value })
+        }
         placeholder="Новый список"
         disabled={isClicked}
       />

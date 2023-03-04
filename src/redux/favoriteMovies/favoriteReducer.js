@@ -1,5 +1,6 @@
 const initialState = {
   movies: [],
+  movieListName: "",
 };
 const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +22,11 @@ const favoriteReducer = (state = initialState, action) => {
         movies: state.movies.filter(
           (movie) => movie.imdbID !== action.payload.imdbID
         ),
+      };
+    case "LIST_NAME":
+      return {
+        ...state,
+        movieListName: action.payload,
       };
     default:
       return state;

@@ -5,15 +5,16 @@ import "./ListPage.css";
 
 const ListPage = () => {
   const movies = useSelector((store) => store.favoriteReducer.movies);
-
+  const listName = useSelector((store) => store.favoriteReducer.movieListName);
   return (
     <div className="list-page">
-      <h1 className="list-page__title">Мой список</h1>
+      <h1 className="list-page__title">{listName}</h1>
       <ul>
         {movies.map((item) => {
           return (
             <li key={item.imdbID}>
               <a
+                rel="noopener noreferrer"
                 target="_blank"
                 href={`https://www.imdb.com/title/${item.imdbID}/`}
               >
