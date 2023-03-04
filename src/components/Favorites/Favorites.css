@@ -24,10 +24,16 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
-}
-
-.favorites__save:hover {
     cursor: pointer;
+
+}
+.favorites__save:hover {
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+.favorites__save:disabled{
+pointer-events: none;
+opacity: .3;
+cursor:pointer;
+
+ }
